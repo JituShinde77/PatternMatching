@@ -49,7 +49,7 @@ function validate()
 
 function validatePassword()
 {
-        if [[ ${#1} -ge 8 && "$1" == *[A-Z]* && "$1" == *[a-zA-Z]* ]]
+        if [[ ${#1} -ge 8 && "$1" == *[A-Z]* && "$1" == *[a-zA-Z]* && "$1" == *[0-9]* ]]
         then
                 echo "Correct"
         else
@@ -59,4 +59,4 @@ function validatePassword()
 
 read -p "Enter the password:" password
 errorMessage="Invalid Password Enter minimum 8 character"
-validatePass $password
+validatePassword $password

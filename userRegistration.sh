@@ -8,7 +8,6 @@ phonePattern="^[0-9]{2}[[:space:]][0-9]{10}$"
 # Validation Function
 function validate()
 {
-
 	if [[ ${1} =~ $2 ]]
 	then
   		echo "Yes"
@@ -16,7 +15,6 @@ function validate()
        		echo $3
 	fi
 }
-
 
 read -p "Enter the first name: " name
 nameErrorMsg="Invalid name format Name Start with Capital and minimum 3 characters."

@@ -1,16 +1,26 @@
 echo "Welcome to user registration.."
-#shot -s extglob
+shopt -s extglob
 
-#namePatt="^[A-Z][a-z]{2,}$"
-read -p "Enter the name: " name
-namePatt="^[A-Z]{1}[a-z]{2,}$"
-nameErrorMsg="Invalid name format First name Start with Capital and minimum 3 characters."
+#bash -O globasciiranges -c 'echo [A-Z]*'
 
-if [[ $name =~ $namePatt ]]
-then
-  	echo "Yes"
-else
-       	echo nameErrorMsg
-fi
+#namePattern="^[A-Z][a-z]{2,}$"
+namePattern="^[A-Z][a-z]{2,}$"
+nameErrorMsg="Invalid name format Name Start with Capital and minimum 3 characters."
+
+function validate()
+{
+	if [[ $1 =~ $2 ]]
+	then
+  		echo "Yes"
+	else
+       		echo $3
+	fi
+}
+
+read -p "Enter the first name: " name
+validate $name $namePattern "${nameErrorMsg}"
+
+read -p "Enter the Last name: " name
+validate $name $namePattern "${nameErrorMsg}"
 
 
